@@ -1,3 +1,21 @@
+/*This file is part of H Componen Library.
+
+H Componen Library is free software : you can redistribute itand /or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License.
+
+H Componen Library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with H Componen Library.If not, see < https://www.gnu.org/licenses/>.
+
+Copyright 2019 Yusuf Hanoğlu 
+*/
+
+
 #pragma once
 
 #ifdef HCL_EXPORTS
@@ -17,20 +35,6 @@
 
 using namespace std;
 
-// The Fibonacci recurrence relation describes a sequence F
-// where F(n) is { n = 0, a
-//               { n = 1, b
-//               { n > 1, F(n-2) + F(n-1)
-// for some initial integral values a and b.
-// If the sequence is initialized F(0) = 1, F(1) = 1,
-// then this relation produces the well-known Fibonacci
-// sequence: 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
-
-// Initialize a Fibonacci relation sequence
-// such that F(0) = a, F(1) = b.
-// This function must be called before any other function.
-//extern "C" HCL_API class HButton;
-//extern "C" HCL_API class Component;
 
 
 
@@ -541,4 +545,4 @@ private:
 
 
 
-	static const string HCL_INFO = "HCl (Han Component Library) Version: 1.1 Created By: Y.Kagan Hanoglu";;
+	static const string HCL_INFO = "HCl (H Component Library) Version: 1.1 Created By: Yusuf K. Hanoglu";;
