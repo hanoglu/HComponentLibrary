@@ -136,5 +136,4 @@ To use HCl library do this steps after copying HCl Component Library folder to C
 
 That's all, you can use H Component Library in your C++ project by using; #include "HCl.h";
 ## Build From Source
-Just open HCl.sln file with Visual Studio, change source code and compile.<br>
-*I finished this project years ago in high school so souce code might be spaghetti.*
+Just open HCl.sln file with Visual Studio, change source code and compile.
