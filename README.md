@@ -5,7 +5,7 @@ Project aims to make it easy to convert __minimal__ Java Swing projects to nativ
 A java swing developer can easily understand how to use HComponentLibrary with these examples.
 ### "Hello World" Application
 Here is an example of how to use library, its syntax hugely inspired by Swing.
-```
+```cpp
 #include "windows.h"
 #include "HCl.h";
 
@@ -38,7 +38,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 ```
 ### An Example With Combo Box
 Slightly more complex application with combo box and text field.
-```
+```cpp
 #include "HCl.h";
 #include "windows.h"
 
