@@ -1,13 +1,41 @@
 # HComponentLibrary
-HComponenLibrary is a lightweight UI component library for C++ which is highly inspired by Java Swing. <br>
-Project aims to make it easy to convert __minimal__ Java Swing projects to native Windows application.
+HComponenLibrary is a lightweight UI component library for C++ which is highly inspired by Java Swing's syntax.
+## Why Should I Use HCl
+* HCl directly uses Win32 API, so it has minimal dependencies and maximum performance
+* Its syntax is similar to Java Swing so it can be learned easily
+* It can be used to convert __minimal__ Java Swing projects to native Windows applications
+* It has minimal classes which are necessary to create a GUI application
+* Size of the DLL file is so small (Around 230KiB)
+* LGPL licensed so it can also be used in dynamically linked proprietary applications
+## Classes
+HComponentLibrary consist of classes below:
+|Classes|Explanation|
+|-------|-----------|
+|ActionEvent|Contains an action event for action listeners|
+|ButtonGroup|Groups radio buttons to be sure only one button selected simultaneously|
+|Component|Parent class of UI components|
+|Dimension|Contains width and height values|
+|HButton|Creates a clickable button|
+|HCheckBox|Creates a checkbox|
+|HComboBox|Creates a dropdown list|
+|HFrame|Creates an application window which can be main window|
+|HInternalFrame|Creates a window which can be displayed inside panels|
+|HLabel|Displays a text|
+|HPanel|Can contain UI elements|
+|HRadioButton|Creates a radio button|
+|HTextArea|Displays an editable multiple line text|
+|HTextField|Displays an editable one line text|
+|KeyEvent|Stores data for key listeners|
+|Point|Contains x and y axis|
+|String|Performs cast operations|
+
 ## Sample Applications
-A java swing developer can easily understand how to use HComponentLibrary with these examples.
+A Java Swing developer can easily understand how to use HComponentLibrary with these examples.
 ### "Hello World" Application
 Here is an example of how to use library, its syntax hugely inspired by Swing.
 ```cpp
 #include "windows.h"
-#include "HCl.h";
+#include "HCl.h"
 
 // Starting point of application
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow) {
@@ -39,7 +67,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 ### An Example With Combo Box
 Slightly more complex application with combo box and text field.
 ```cpp
-#include "HCl.h";
+#include "HCl.h"
 #include "windows.h"
 
 HComboBox combo;
@@ -100,27 +128,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 	return WaitAll();
 }
 ```
-## Classes
-HComponentLibrary consist of classes below:
-```
-- ActionEvent
-- ButtonGroup
-- Component
-- Dimension
-- HButton
-- HCheckBox
-- HComboBox
-- HFrame
-- HInternalFrame
-- HLabel
-- HPanel
-- HRadioButton
-- HTextArea
-- HTextField
-- KeyEvent
-- Point
-- String
-```
 ## How to Install
 To use HCl library do this steps after copying HCl Component Library folder to C:\
 
@@ -136,4 +143,68 @@ To use HCl library do this steps after copying HCl Component Library folder to C
 
 That's all, you can use H Component Library in your C++ project by using; #include "HCl.h";
 ## Build From Source
-Just open HCl.sln file with Visual Studio, change source code and compile.
+### Windows
+Just open HCl.sln file with Visual Studio, change source code and compile.<br>
+You can also compile the project with CMake with similar steps in Linux section.
+### Linux
+HCl uses Windows api and cannot be natively compiled on Linux distros. But it can be cross compiled and run with MinGW and Wine projects.<br>
+These steps for RHEL based distros can also be applied other Linux based operating systems easily.
+### RHEL Based Distros
+#### Compiling With CMake
+Install necessary packages by
+```bash
+sudo dnf install mingw64-gcc mingw64-gcc-c++ mingw64-headers mingw64-filesystem
+```
+or to compile for 32 bit architecture use
+```bash
+sudo dnf install mingw32-gcc mingw32-gcc-c++ mingw32-headers mingw32-filesystem
+```
+Then open project root directory and
+```bash
+mkdir build
+mingw64-cmake ..
+mingw64-make
+```
+for 32 bit
+```bash
+mkdir build
+mingw32-cmake ..
+mingw32-make
+```
+Then libHCL.dll and libHCL.dll.a files can be found at build/HCL directory. libHCL.dll.a can be renamed to HCL.lib.
+#### Testing With Wine
+Be sure Wine64 is installed properly.<br>
+Copy any of the examples above and paste it to Test.cpp file.<br>
+Copy libHCL.dll and HCl.h files to the same directory with Test.cpp<br>
+Copy HCL.lib to /home/$USER/HCl (Any directory can be used)<br>
+Run following code to compile application with HCl
+```bash
+x86_64-w64-mingw64-g++ Test.cpp -lHCl -L/home/$USER/HCl -municode -o Test.exe
+```
+For 32 bit
+```bash
+x86_64-w64-mingw64-g++ Test.cpp -lHCl -L/home/$USER/HCl -municode -o Test.exe
+```
+Before run the compiled application all necessary dll files of MinGW should either be copied to same directory with appliction or included to WINEPATH environment variable properly.
+|DLL Files|Can Be Found At (x64)|Can Be Found At (x32)|
+|---------|---------------------|---------------------|
+|libgcc_s_seh-1.dll|/usr/x86_64-w64-mingw32/sys-root/mingw/bin|-|
+|libstdc++-6.dll|/usr/x86_64-w64-mingw32/sys-root/mingw/bin|/usr/i686-w64-mingw32/sys-root/mingw/bin|
+
+WINEPATH environment variable can be initialized by
+```bash
+export WINEPATH="/usr/x86_64-w64-mingw32/sys-root/mingw/bin"
+```
+For 32 bit
+```bash
+export WINEPATH="/usr/i686-w64-mingw32/sys-root/mingw/bin"
+```
+_Note: In every individual terminal session this export command should be run._<br><br>
+Finally compiled application can be run by following command
+```bash
+wine64 Test.exe
+```
+For 32 bit
+```bash
+wine Test.exe
+```
