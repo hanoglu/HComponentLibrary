@@ -208,3 +208,5 @@ For 32 bit
 ```bash
 wine Test.exe
 ```
+## Gallery
+<img width="236" alt="example" src="https://user-images.githubusercontent.com/56837349/167948174-7914d48f-7323-4bf5-8fcd-6ccc1161d7b9.png">
