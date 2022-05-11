@@ -1,5 +1,5 @@
 /*
-HCl
+HCl.h
 Copyright (C) 2022 Yusuf K. Hanoğlu
 
 This library is free software; you can redistribute it and/or
@@ -27,8 +27,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
 #include "windows.h"
 #include <string>
 #include <sstream>
-#include <strsafe.h>
 #include <tchar.h>
+#include <strsafe.h>
 #include <thread>
 #include <iostream>
 #include <vector>
@@ -519,7 +519,7 @@ private:
 	//PCWSTR title = L"NO TITLED H COMPONENT";
 	int(*KeyListener)(KeyEvent);
 
-	const wchar_t CLASS_NAME[22] = L"H COMPONENT CLASS 1.1";
+	const wchar_t CLASS_NAME[22] = L"H COMPONENT CLASS 1.2";
 
 
 
@@ -529,7 +529,17 @@ private:
 
 };
 
-
+    typedef struct MyData {
+        int val1;
+        int val2;
+    }MYDATA, *PMYDATA;
+    LRESULT CALLBACK DefaultWindowProc(HWND, UINT, WPARAM, LPARAM);
+    DWORD WINAPI setVisibleA(LPVOID);
+    void setVisibleB(HFrame*);
+    
+    extern HINSTANCE hInstanceWindows;
+    extern HFrame *frame_visible_ptr;
+    extern int THREAD_COUT;
 
 
 
@@ -537,4 +547,4 @@ private:
 	//extern HButton HButtonExt;
 	extern "C" HCL_API void ReportHINSTANCE(HINSTANCE);
 	extern "C" HCL_API bool WaitAll();
-	static const string HCL_INFO = "H Component Library Version: 1.1 Created By: Yusuf K. Hanoglu";;
+	static const string HCL_INFO = "H Component Library Version: 1.2 Created By: Yusuf K. Hanoglu";;

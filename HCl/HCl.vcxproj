@@ -158,6 +158,18 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="HCl.cpp" />
+    <ClCompile Include="String.cpp" />
+    <ClCompile Include="HButton.cpp" />
+    <ClCompile Include="HCheckBox.cpp" />
+    <ClCompile Include="HRadioButton.cpp" />
+    <ClCompile Include="ButtonGroup.cpp" />
+    <ClCompile Include="HTextField.cpp" />
+    <ClCompile Include="HTextArea.cpp" />
+    <ClCompile Include="HLabel.cpp" />
+    <ClCompile Include="HComboBox.cpp" />
+    <ClCompile Include="HPanel.cpp" />
+    <ClCompile Include="HInternalFrame.cpp" />
+    <ClCompile Include="HFrame.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
